@@ -1,3 +1,18 @@
+  function doBlink() {
+    // Blink, Blink, Blink...
+    var blink = document.all.tags("BLINK")
+    for (var i = 0; i < blink.length; i++)
+      blink[i].style.visibility = blink[i].style.visibility == "" ? "hidden" : ""
+  }
+
+  function startBlink() {
+    // Make sure it is IE4
+    if (document.all)
+      setInterval("doBlink()", 1000)
+  }
+  window.onload = startBlink;
+
+
 o = {
   history: [],
 };
@@ -21,3 +36,9 @@ function addhistory(Added) {
   )
   document.querySelector('span:last-child').textContent += ' + ' + Added;
 }
+
+setTimeout(function() {
+  document.querySelector('button').onclick = function() {
+    addFive();
+  }
+}, 200);
