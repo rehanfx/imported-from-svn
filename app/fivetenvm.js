@@ -31,7 +31,11 @@ var FiveTenVM = (function () {
   // common code for addFive and addTen
   function addNumber(num) {
     data.addHistory(num);
-    expression += " + " + num;
+    if(sum===0) {
+      expression = num;
+    } else {
+      expression += " + " + num;
+    }
     sum += num;
   }
 
