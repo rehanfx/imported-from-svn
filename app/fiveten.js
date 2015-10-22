@@ -1,31 +1,33 @@
 (function (ft) {
-  if(ft == undefined) {
+  "use strict";
+
+  if (!ft) {
     return;
   }
 
-  var elExpression = document.getElementById('expression');
-  var elResult = document.getElementById('result');
-  var btnFive = document.getElementById('addfive');
-  var btnTen = document.getElementById('addten');
+  var elExpression = document.getElementById('expression'),
+      elResult = document.getElementById('result'),
+      btnFive = document.getElementById('addfive'),
+      btnTen = document.getElementById('addten');
 
   function updateView() {
     elExpression.innerText = ft.expression();
     elResult.innerText = ft.sum();
   }
 
-  function onFive () {
+  function onFive() {
     ft.addFive();
     updateView();
   }
 
-  function onTen () {
+  function onTen() {
     ft.addTen();
     updateView();
   }
 
 
-  btnFive.addEventListener("click", onFive );
-  btnTen.addEventListener("click", onTen );
+  btnFive.addEventListener("click", onFive);
+  btnTen.addEventListener("click", onTen);
   updateView();
 
-})(FiveTenVM);
+}(FiveTenVM));
