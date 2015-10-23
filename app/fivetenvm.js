@@ -57,3 +57,5 @@ var FiveTenVM = (function () {
   };
 
 }());
+
+module.exports = FiveTenVM;

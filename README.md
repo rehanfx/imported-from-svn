@@ -23,3 +23,19 @@ Build the app so it can be extended in future to allow the following features:
 * Provide unit tests of the public interface of the app
 
 ### 
+
+## Instructions
+
+### Setting up the tests suite
+
+`npm install mocha --save-dev`
+
+### Running the unit tests
+
+`mocha`
+
+
+
+
+
+
