@@ -8,8 +8,16 @@ var FiveTenVM = (function () {
     name: "History of Fives and Tens",
     history: [],
 
-    addHistory: function (value) {
+    addHistory: function (value, cb) {
       this.history.push(value);
+
+      // update the value on the serer
+      // (the code below only performs a mock xhr request causing delay of 1 sec)
+      // TODO: replace it with a real server code
+      var oReq = new XMLHttpRequest();
+      oReq.addEventListener("load", cb);
+      oReq.open("GET", "http://www.httpbin.org/delay/1", true);
+      oReq.send();
     }
 
     // Load history from JSON data file
@@ -29,22 +37,26 @@ var FiveTenVM = (function () {
   var sum = 0; //data.history.reduce(function (p, c) { return p + c; }, 0);
 
   // common code for addFive and addTen
-  function addNumber(num) {
-    data.addHistory(num);
-    if(sum===0) {
-      expression = num;
-    } else {
-      expression += " + " + num;
-    }
-    sum += num;
+  function addNumber(num, cb) {
+    data.addHistory(num, function() {
+      if(sum===0) {
+        expression = num;
+      } else {
+        expression += " + " + num;
+      }
+      sum += num;
+      if(cb && (typeof cb == "function")) {
+         cb();
+      }
+    });
   }
 
-  function addFive() {
-    addNumber(5);
+  function addFive(cb) {
+    addNumber(5, cb);
   }
 
-  function addTen() {
-    addNumber(10);
+  function addTen(cb) {
+    addNumber(10, cb);
   }
 
 
@@ -58,4 +70,5 @@ var FiveTenVM = (function () {
 
 }());
 
-module.exports = FiveTenVM;
+if(!window)
+  module.exports = FiveTenVM;
