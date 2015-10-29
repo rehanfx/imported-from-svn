@@ -1,6 +1,5 @@
 (function (ft) {
   "use strict";
-
   if (!ft) {
     return;
   }
@@ -9,12 +8,12 @@
       elResult = document.getElementById('result'),
       btnFive = document.getElementById('addfive'),
       btnTen = document.getElementById('addten'),
-      textWaiting = document.getElementsByClassName("waiting")[0];
+      textWaiting = document.getElementsByClassName("spinner")[0];
 
   function updateView() {
     elExpression.innerText = ft.expression();
     elResult.innerText = ft.sum();
-    endWaiting();
+    endSpinner();
   }
 
   function startWaiting() {
@@ -23,7 +22,7 @@
     btnTen.setAttribute("disabled","");
   }
 
-  function endWaiting() {
+  function endSpinner() {
     btnFive.removeAttribute("disabled");
     btnTen.removeAttribute("disabled");
     textWaiting.classList.add("hidden");
@@ -45,3 +44,4 @@
   updateView();
 
 }(FiveTenVM));
+

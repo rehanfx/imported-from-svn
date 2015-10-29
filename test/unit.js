@@ -1,8 +1,7 @@
-var assert = require("assert");
+var assert = chai.assert;
+var ft = FiveTenVM;
 
 describe('FiveTenVM module function', function() {
-
-  var ft = require ("../app/fivetenvm.js");
 
   describe('expression()', function () {
     it('should have 0 as default', function () {
@@ -10,8 +9,9 @@ describe('FiveTenVM module function', function() {
     });
 
     it('should not have 0 after AddFive', function () {
-      ft.addFive();
-      assert.notEqual(ft.expression(), "0");
+      ft.addFive(function(){
+        assert.notEqual(ft.expression(), "0");
+      });
     });
 
     it('should have 5 + 10 after AddFive and AddTen', function () {

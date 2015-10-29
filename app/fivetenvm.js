@@ -1,6 +1,5 @@
 var FiveTenVM = (function () {
   "use strict";
-
   // This is the data/model
   // In future we should be able to save recreate the entire
   // history with this much data.
@@ -69,6 +68,3 @@ var FiveTenVM = (function () {
   };
 
 }());
-
-if(!window)
-  module.exports = FiveTenVM;

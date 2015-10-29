@@ -1,0 +1,11 @@
+{
+  "name": "Five-Ten-App",
+  "version": "0.0.1",
+  "devDependencies": {
+    "grunt": "latest",
+    "grunt-mocha": "~0.4.6",
+    "mocha": "~1.14.0",
+    "chai": "~1.8.1",
+    "w3c-xmlhttprequest": "latest"
+  }
+}
